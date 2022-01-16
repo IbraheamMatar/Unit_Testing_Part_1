@@ -170,6 +170,7 @@ namespace IdealWeightCalculator.Tests
             CollectionAssert.Contains(names, "Ibraheam");
             CollectionAssert.AllItemsAreInstancesOfType(names, typeof(string));
 
+
         }
 
         [TestMethod]
