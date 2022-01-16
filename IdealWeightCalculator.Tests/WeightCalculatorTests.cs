@@ -196,5 +196,18 @@ namespace IdealWeightCalculator.Tests
 
 
         }
+
+
+
+        [TestMethod]
+        public void GetIdealBodyWeightFromDataSource_WithGoodInputs_Returns_Correct_Results()
+        {
+            WeightCalculator weightCalculator = new WeightCalculator();
+
+            List<double> actual = weightCalculator.GetIdealBodyWeightFromDataSource();
+            double[] expected = { 62.5, 62.75, 74 };
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }

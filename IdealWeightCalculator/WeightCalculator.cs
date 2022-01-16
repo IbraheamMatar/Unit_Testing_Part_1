@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IdealWeightCalculator
 {
-   public class WeightCalculator
+    public class WeightCalculator
     {
         public double Hight { get; set; }
 
@@ -23,9 +23,26 @@ namespace IdealWeightCalculator
                     return (Hight - 100) - ((Hight - 150) / 2);
 
                 default:
-                   throw new ArgumentException("The sex argument is not valid");
+                    throw new ArgumentException("The sex argument is not valid");
 
             }
+        }
+
+        public List<double> GetIdealBodyWeightFromDataSource()
+        {
+            List<double> results = new List<double>();
+
+            var repo = new WeightRepository();
+
+            IEnumerable<WeightCalculator> weights = repo.GetWeight();
+
+            foreach (var weight in weights)
+            {
+                results.Add(weight.GetIdealBodyWeight());
+            }
+
+            return results;
+
         }
 
     }
